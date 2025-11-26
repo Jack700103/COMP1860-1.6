@@ -1,0 +1,12 @@
+CHIP multifunction {
+    IN A,B,C,D,CON[2];
+    OUT X,Y;
+    PARTS:
+    chip1(A=A,B=B,C=C,D=D, X=X1, Y=Y1);
+    chip2(A=A,B=B,C=C,D=D, X=X2, Y=Y2);
+    chip3(A=A,B=B,C=C,D=D, X=X3, Y=Y3);
+    chip4(A=A,B=B,C=C,D=D, X=X4, Y=Y4);
+
+    Mux4Way(a=X1, b=X2, c=X3, d=X4, sel=CON, out=X);
+    Mux4Way(a=Y1, b=Y2, c=Y3, d=Y4, sel=CON, out=Y);
+}

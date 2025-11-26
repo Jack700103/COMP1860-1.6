@@ -1,0 +1,7 @@
+CHIP A6Q1 {
+    IN A,B;
+    OUT X;
+    PARTS:
+    Not(in=B, out=NotB);
+    And(a=A, b=NotB, out=X);
+}

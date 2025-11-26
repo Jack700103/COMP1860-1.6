@@ -1,0 +1,7 @@
+CHIP A6Q2 {
+    IN N,L,K;
+    OUT H;
+    PARTS:
+    And(a=N, b=L, out=NL);
+    Or(a=NL, b=K, out=H);
+}

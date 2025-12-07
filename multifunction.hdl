@@ -2,10 +2,17 @@ CHIP multifunction {
     IN A, B, C, D, CON[2];
     OUT X, Y;
     PARTS:
-    chip1(chip1_A = A, chip1_B = B, chip1_C = C, chip1_D = D, chip1_X = X1, chip1_Y = Y1);
-    chip2(chip2_A = A, chip2_B = B, chip2_C = C, chip2_D = D, chip2_X = X2, chip2_Y = Y2);
-    chip3(chip3_A = A, chip3_B = B, chip3_C = C, chip3_D = D, chip3_X = X3, chip3_Y = Y3);
-    chip4(chip4_A = A, chip4_B = B, chip4_C = C, chip4_D = D, chip4_X = X4, chip4_Y = Y4);
-    Mux4Way16(in0 = X1, in1 = X2, in2 = X3, in3 = X4, sel = CON, out = X);
-    Mux4Way16(in0 = Y1, in1 = Y2, in2 = Y3, in3 = Y4, sel = CON, out = Y);
+
+    chip1(A=A, B=B, C=C, D=D, X=X1, Y=Y1);
+    chip2(A=A, B=B, C=C, D=D, X=X2, Y=Y2);
+    chip3(A=A, B=B, C=C, D=D, X=X3, Y=Y3);
+    chip4(A=A, B=B, C=C, D=D, X=X4, Y=Y4);
+
+    Mux(a=X1, b=X2, sel=CON[0], out=X12);
+    Mux(a=X3, b=X4, sel=CON[0], out=X34);
+    Mux(a=X12, b=X34, sel=CON[1], out=X);
+    
+    Mux(a=Y1, b=Y2, sel=CON[0], out=Y12);
+    Mux(a=Y3, b=Y4, sel=CON[0], out=Y34);
+    Mux(a=Y12, b=Y34, sel=CON[1], out=Y);
 }

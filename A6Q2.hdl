@@ -1,12 +1,10 @@
 CHIP A6Q2 {
     IN N, L, K;
     OUT H;
-
     PARTS:
-    not(in=L, out=NotL);
-    and(a=NotL,b=N,out=and_result1);
-    or(a=NotL, b=N, out=or_result1);
-    or(a=and_result1, b=or_result1, out=or_result2);
-    and(a=or_result2, b=K, out=H);
+    Not(in=L, out=l_not);
+    And(a=N, b=l_not, out=and1);
+    And(a=N, b=K, out=and2);
+    Or(a=and1, b=and2, out=or1);
+    And(a=or1, b=K, out=H);
 }
-

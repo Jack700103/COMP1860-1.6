@@ -1,0 +1,23 @@
+IN N=0, L=0, K=0;
+OUT H=0;
+
+IN N=0, L=0, K=1;
+OUT H=0;
+
+IN N=0, L=1, K=0;
+OUT H=0;
+
+IN N=0, L=1, K=1;
+OUT H=0;
+
+IN N=1, L=0, K=0;
+OUT H=1;
+
+IN N=1, L=0, K=1;
+OUT H=1;
+
+IN N=1, L=1, K=0;
+OUT H=0;
+
+IN N=1, L=1, K=1;
+OUT H=0;

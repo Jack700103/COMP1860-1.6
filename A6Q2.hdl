@@ -1,9 +1,0 @@
-CHIP A6Q2 {
-    IN N,L,K;
-    OUT H;
-    PARTS:
-    Not(in=N, out=notN);      
-    And(a=notN, b=K, out=and1); 
-    Or(a=and1, b=L, out=or1); 
-    And(a=or1, b=K, out=H);   
-}
